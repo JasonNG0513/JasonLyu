@@ -312,6 +312,10 @@ vistd&lt;-tapply(profit,vi,sd)               #匹配后同因子标准误
 
 <pre><code class="r">dim(z)&lt;-c(4,5,6,7)           #4维数组，840个元素
 
+a&lt;-c(4,2,6)
+
+coll&lt;-array(a,dim=c(5,6,2))  #3维数组，60个元素，变量coll分别由a循环赋值
+
 m&lt;-array(1:80,dim=c(2,5,2,4))             #创建元素与维数的向量
 
 a&lt;-array(c(1,1:3,2,2:4),dim=c(1,3,1,3))   #索引矩阵
@@ -319,6 +323,60 @@ a&lt;-array(c(1,1:3,2,2:4),dim=c(1,3,1,3))   #索引矩阵
 m[a]                                      #找出索引元素
 
 m[a]&lt;-10                                  #元素替换
+</code></pre>
+
+<p>定义自己的函数</p>
+
+<pre><code class="r">name&lt;-function(variable1,variable2) expression #定义自己的函数
+
+a&lt;-c(4,5)
+
+b&lt;-c(5,6)
+
+z&lt;-a%o%b          #外积
+
+z&lt;-outer(a,b,&quot;*&quot;) #外积的另一种表现形式
+</code></pre>
+
+<p>矩阵转置</p>
+
+<pre><code class="r">a&lt;-array(1:3,4:6,dim=c(2,3))
+
+m&lt;-aperm(a,c(2,1))     #将原先的dim调换
+</code></pre>
+
+<p>矩阵相乘</p>
+
+<pre><code class="r">t&lt;-a%*%m               #上面两个矩阵相乘
+</code></pre>
+
+<p>对角矩阵</p>
+
+<pre><code class="r">a&lt;-array(1:15,dim=c(3,5))
+
+diag(a)                #返回a矩阵的对角元素
+
+a&lt;-c(2,2,4)
+
+diag(a)                #返回以a向量作为对角元素的对角矩阵
+</code></pre>
+
+<p>求解线性方程</p>
+
+<pre><code class="r">a&lt;-array(3:6,dim=c(2,2))
+
+solve(a)               #a矩阵求逆
+
+t&lt;-array(1,3,dim=c(2,1))
+
+x&lt;-solve(a,t)          #线性方程求解
+</code></pre>
+
+<h2>CH7</h2>
+
+<pre><code class="r">read.table(&quot;&quot;)           #读取数据框
+
+a&lt;-read.table(&quot;&quot;,header=TRUE) #使用默认标签忽略原数据框的行标签
 </code></pre>
 
 </body>
